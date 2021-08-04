@@ -1,16 +1,23 @@
 
 
-sum = 0
+priceAndValue = {}
+
 while True:
-    userInput = input("Enter the item price or q to quit : \n")
-    if userInput != "q":
+    print("Enter the item price or q to quit or e to exit : \n")
+    productName = input("Enter the name of the product \n")
+    productPrice = input("Enter price of the product \n")
+    if productName != "q":
         try:
-            sum = sum+int(userInput)
-            print(f"order total so far {sum}")
+            priceAndValue.update({productName: productPrice})
+
         except ValueError as e:
             print("Make sure you enter a number")
-
-    else:
-        print(f"Your total bill is {sum} ")
-        print("Thanks for showping with us!")
+    elif productName == "q":
+        for item in priceAndValue.keys():
+            for price in priceAndValue.values():
+                print(f"{item} = {price}")
         break
+# elif productName == "q":
+#     print(f"Your total bill is {priceAndValue} ")
+#     print("Thanks for shoping with us!")
+# elif productName == "e":
