@@ -1,23 +1,29 @@
 
-
+print("************ Wellcome to Neo Shop ************")
 priceAndValue = {}
-
+total = 0
 while True:
-    print("Enter the item price or q to quit or e to exit : \n")
     productName = input("Enter the name of the product \n")
-    productPrice = input("Enter price of the product \n")
+
     if productName != "q":
         try:
+            productPrice = int(input("Enter price of the product \n"))
             priceAndValue.update({productName: productPrice})
 
         except ValueError as e:
             print("Make sure you enter a number")
     elif productName == "q":
-        for item in priceAndValue.keys():
-            for price in priceAndValue.values():
-                print(f"{item} = {price}")
+        for key, values in priceAndValue.items():
+            print(f"{key} = {values} ")
+
+        l = [i for i in priceAndValue.values()]
+        total = sum(l)
+
+        print(f"The total is {total}")
+
+        with open("recipt.txt", "w") as f:
+            f.write(str(priceAndValue))
+
         break
-# elif productName == "q":
-#     print(f"Your total bill is {priceAndValue} ")
-#     print("Thanks for shoping with us!")
-# elif productName == "e":
+    elif productName == "e":
+        exit()
