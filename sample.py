@@ -1,4 +1,7 @@
-
+'''github
+origin:https://github.com/alineaz42/shop-calculator/commits/main
+pushed
+'''
 
 print("welcome to future:")
 
